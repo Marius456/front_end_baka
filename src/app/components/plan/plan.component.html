@@ -1,0 +1,53 @@
+<div class="card">  
+    <div class="card-header" style="text-align:center">  
+        <b>Public Sport Plans</b>  
+    </div>  
+    <div class="card-body">  
+        <form [formGroup]="FromPlan" (ngSubmit)="UpdateId();CreatePlan(FromPlan.value)">  
+            <div class="row">  
+                <div class="form-group col-sm-3">  
+                    <label for="company">Plan Name</label>  
+                    <input type="text" class="form-control" formControlName="Name" id="company" placeholder="Enter Plan Name" >  
+                    </div>  
+                    <div class="form-group col-sm-3">  
+                        <label for="company">Description</label>  
+                        <input type="text" class="form-control" formControlName="Description" id="Description" placeholder="Enter Description" >  
+                        </div>  
+                            </div>  
+                            <div class="row">  
+                                <div class="form-group col-sm-3">  
+                                    <div Id="Id"></div>
+                                    <button type="submit" class="btn btn-primary" >Add Plan</button>  
+                                </div>  
+                            </div>  
+                        </form>  
+                    </div>  
+                    <div class="card-footer">  
+                        <div class="col-lg-12 table-responsive">  
+                            <table class="table table-striped">  
+                                <thead>  
+                                    <tr>   
+                                        <th>Plan Name</th>  
+                                        <th>Description</th> 
+                                        <th></th>  
+                                    </tr>  
+                                </thead>  
+                                <tbody>  
+                                    <tr *ngFor="let Plan of allPlans | async"> 
+                                            <td>{{Plan.name}}</td>  
+                                            <td>{{Plan.description}}</td> 
+                                            <td>  
+                                                <button type="button" class="btn btn-primary mr-2" (click)="ShowExercises(Plan)">Show</button> 
+                                                <button type="button" class="btn btn-primary mr-2" (click)="CopyPlan(Plan)">Copy</button> 
+                                            </td>
+                                            <td *ngIf="IsUserPlan(Plan);else other_content" >
+                                                <button type="button" class="btn btn-primary mr-1" (click)="EditPlan(Plan.id)">Edit</button>  
+                                                <button type="button" class="btn btn-danger mr-1" (click)="DeletePlan(Plan.id)">Delete</button>  
+                                            </td>  
+                                            <ng-template #other_content><td></td></ng-template>
+                                    </tr>  
+                                </tbody>  
+                            </table>  
+                        </div>  
+                    </div>  
+                </div>    

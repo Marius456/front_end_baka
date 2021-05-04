@@ -1,0 +1,52 @@
+<div class="card">  
+    <div class="card-header" style="text-align:center">  
+        <b>Posts</b>  
+    </div>  
+    <div class="card-body">  
+        <form [formGroup]="FromPost" (ngSubmit)="UpdateId();CreatePost(FromPost.value)">  
+            <div class="row">  
+                <div class="form-group col-sm-3">  
+                    <label for="company">Post Name</label>  
+                    <input type="text" class="form-control" formControlName="Name" id="company" placeholder="Enter Post Name" >  
+                    </div>  
+                    <div class="form-group col-sm-3">  
+                        <label for="company">Description</label>  
+                        <input type="text" class="form-control" formControlName="Description" id="Description" placeholder="Enter Description" >  
+                        </div>  
+                            </div>  
+                            <div class="row">  
+                                <div class="form-group col-sm-3">  
+                                    <div Id="Id"></div>
+                                    <button type="submit" class="btn btn-primary" >Add Post</button>  
+                                </div>  
+                            </div>  
+                        </form>  
+                    </div>  
+                    <div class="card-footer">  
+                        <div class="col-lg-12 table-responsive">  
+                            <table class="table table-striped">  
+                                <thead>  
+                                    <tr>   
+                                        <th>Post Name</th>  
+                                        <th>Description</th> 
+                                        <th></th>  
+                                    </tr>  
+                                </thead>  
+                                <tbody>  
+                                    <tr *ngFor="let Post of allPosts | async">  
+                                        <td>{{Post.name}}</td>  
+                                        <td>{{Post.description}}</td>  
+                                        <td>  
+                                            <button type="button" class="btn btn-primary mr-2" (click)="ShowComments(Post)">Show</button> 
+                                        </td>
+                                        <td *ngIf="IsUserPost(Post);else other_content" >
+                                            <button type="button" class="btn btn-primary mr-1" (click)="EditPost(Post.id)">Edit</button>  
+                                            <button type="button" class="btn btn-danger mr-1" (click)="DeletePost(Post.id)">Delete</button>  
+                                        </td>  
+                                        <ng-template #other_content><td></td></ng-template>
+                                    </tr>  
+                                </tbody>  
+                            </table>  
+                        </div>  
+                    </div>  
+                </div>    

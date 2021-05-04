@@ -1,0 +1,49 @@
+<div class="card">  
+    <div class="card-header" style="text-align:center">  
+        <b>Exercises</b>  
+    </div>  
+    <div class="card-body"  *ngIf="IsUserExercise()">  
+        <form [formGroup]="FromExercise" (ngSubmit)="UpdateId();CreateExercise(FromExercise.value)">  
+            <div class="row">
+                    <div class="form-group col-sm-3">  
+                        <label for="company">Time</label>  
+                        <input type="date"   class="form-control" formControlName="Time" id="Time">
+                        </div>     
+                    <div class="form-group col-sm-3">  
+                        <label for="company">Text</label>  
+                        <input type="text" class="form-control" formControlName="Text" id="Text" placeholder="Enter Text" >  
+                        </div>  
+                </div>  
+                            <div class="row">  
+                                <div class="form-group col-sm-3">  
+                                    <div Id="Id"></div>
+                                    <button type="submit" class="btn btn-primary" >Add Exercise</button>  
+                                </div>  
+                            </div>  
+                        </form>  
+                    </div>  
+                    <div class="card-footer">  
+                        <div class="col-lg-12 table-responsive">  
+                            <table class="table table-striped">  
+                                <thead>  
+                                    <tr>  
+                                        <th>Date</th>  
+                                        <th>Text</th> 
+                                        <th></th>  
+                                    </tr>  
+                                </thead>  
+                                <tbody>  
+                                    <tr *ngFor="let Exercise of allExercises | async">  
+                                        <td>{{Exercise.time}}</td>  
+                                        <td>{{Exercise.text}}</td>  
+                                        <td *ngIf="IsUserExercise();else other_content">   
+                                            <button type="button" class="btn btn-primary mr-1" (click)="EditExercise(Exercise.id)">Edit</button>  
+                                            <button type="button" class="btn btn-danger mr-1" (click)="DeleteExercise(Exercise.id)">Delete</button>  
+                                        </td>  
+                                        <ng-template #other_content><td></td></ng-template>
+                                    </tr>  
+                                </tbody>  
+                            </table>  
+                        </div>  
+                    </div>  
+                </div>    
