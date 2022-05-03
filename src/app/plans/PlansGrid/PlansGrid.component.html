@@ -31,13 +31,13 @@
 						<div class="col-md-6">
 							<!-- Layout Switcher -->
 							<div class="layout-switcher">
-								<a class="grid active"><span class="round-pill d-block"><i class="fa fa-th"></i></span></a>
+								<a class="grid active"><span class="round-pill d-block"><em class="fa fa-th"></em></span></a>
 								<div *ngIf="selectedCategory; then trueBlock; else falseBlock"></div>
 								<ng-template #trueBlock> 					
-									<a [routerLink]="['/plans/list/', selectedCategory]" class="list"><span class="round-pill d-block"><i class="fa fa-align-justify"></i></span></a>
+									<a [routerLink]="['/plans/list/', selectedCategory]" class="list"><span class="round-pill d-block"><em class="fa fa-align-justify"></em></span></a>
 								</ng-template>
 								<ng-template #falseBlock>
-									<a [routerLink]="['/plans/list/']" class="list"><span class="round-pill d-block"><i class="fa fa-align-justify"></i></span></a>
+									<a [routerLink]="['/plans/list/']" class="list"><span class="round-pill d-block"><em class="fa fa-align-justify"></em></span></a>
 								</ng-template>
 							</div>
 						</div>

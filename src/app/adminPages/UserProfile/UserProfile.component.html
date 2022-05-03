@@ -7,7 +7,7 @@
 			 <div class="row justify-content-center">
 				<div class="col-lg-3 order-lg-2">
 				  <div class="card-profile-image">
-						<img src="{{currentUser.image}}" class="rounded-circle">
+						<img src="{{currentUser.image}}" alt="" class="rounded-circle">
 				  </div>
 				</div>
 			 </div>
@@ -57,7 +57,7 @@
 			</div>
 			<div class="row p-4 list-img-wrap" *ngFor="let review of reviews">
 				<div class="col-md-2 list-img">
-					<img src="{{review.planImage}}" class="img-fluid rounded-circle shadow-lg">
+					<img src="{{review.planImage}}" alt="" class="img-fluid rounded-circle shadow-lg">
 				</div>
 				<div class="col-md-10" [routerLink]="['/plans/detail', review.planId]">
 					<h5 class="text-primary">{{review.planName}}</h5>

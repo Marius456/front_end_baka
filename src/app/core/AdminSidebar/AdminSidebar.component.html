@@ -2,27 +2,27 @@
    <div class="dashboard-nav">
       <div class="dashboard-nav-inner">
          <ul data-submenu-title="Main">
-            <li class="active"><a [routerLink]="['/admin/dashboard']"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-            <li><a [routerLink]="['/admin/messages']"><i class="fa fa-inbox"></i> Messages</a></li>
-            <li><a [routerLink]="['/admin/bookmarks']"><i class="fa fa-bookmark"></i> Bookmarks</a></li>
+            <li class="active"><a [routerLink]="['/admin/dashboard']"><em class="fa fa-tachometer"></em> Dashboard</a></li>
+            <li><a [routerLink]="['/admin/messages']"><em class="fa fa-inbox"></em> Messages</a></li>
+            <li><a [routerLink]="['/admin/bookmarks']"><em class="fa fa-bookmark"></em> Bookmarks</a></li>
          </ul>
          <ul data-submenu-title="Exercises" *ngIf="user_role === 'Worker' || user_role === 'Admin'">
-            <li><a [routerLink]="['/admin/exercises']"><i class="fa fa-calendar-check-o"></i> My Exercises</a></li>
-            <li><a [routerLink]="['/admin/add-exercise']"><i class="fa fa-calendar-plus-o"></i> Add Exercise</a></li>
+            <li><a [routerLink]="['/admin/exercises']"><em class="fa fa-calendar-check-o"></em> My Exercises</a></li>
+            <li><a [routerLink]="['/admin/add-exercise']"><em class="fa fa-calendar-plus-o"></em> Add Exercise</a></li>
          </ul>
          <ul data-submenu-title="Plans" *ngIf="user_role === 'Worker' || user_role === 'Admin'">
-            <li><a [routerLink]="['/admin/plans']"><i class="fa fa-calendar-check-o"></i> My Plans</a></li>
-            <li><a [routerLink]="['/admin/reviews']"><i class="fa fa-star"></i> Reviews</a></li>
-            <li><a [routerLink]="['/admin/add-plan']"><i class="fa fa-calendar-plus-o"></i> Add Plan</a></li>
+            <li><a [routerLink]="['/admin/plans']"><em class="fa fa-calendar-check-o"></em> My Plans</a></li>
+            <li><a [routerLink]="['/admin/reviews']"><em class="fa fa-star"></em> Reviews</a></li>
+            <li><a [routerLink]="['/admin/add-plan']"><em class="fa fa-calendar-plus-o"></em> Add Plan</a></li>
          </ul>
          <ul data-submenu-title="Users" *ngIf="user_role === 'Admin'">
-            <li><a [routerLink]="['/admin/users']"><i class="fa fa-users"></i> Users</a></li>
+            <li><a [routerLink]="['/admin/users']"><em class="fa fa-users"></em> Users</a></li>
          </ul>
          <ul data-submenu-title="Account">
-            <li><a [routerLink]="['/admin/profile']"><i class="fa fa-user"></i> My Profile</a></li>
-            <li><a [routerLink]="['/admin/progress']"><i class="fa fa-tasks"></i> My Progress</a></li>
-            <li><a [routerLink]="['/admin/settings']"><i class="fa fa-cogs"></i> Settings</a></li>
-            <li><a [routerLink]="" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a></li>
+            <li><a [routerLink]="['/admin/profile']"><em class="fa fa-user"></em> My Profile</a></li>
+            <li><a [routerLink]="['/admin/progress']"><em class="fa fa-tasks"></em> My Progress</a></li>
+            <li><a [routerLink]="['/admin/settings']"><em class="fa fa-cogs"></em> Settings</a></li>
+            <li><a [routerLink]="" (click)="logout()"><em class="fa fa-sign-out"></em> Logout</a></li>
          </ul>
       </div>
    </div>

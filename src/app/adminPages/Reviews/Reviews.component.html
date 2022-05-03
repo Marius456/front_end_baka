@@ -9,13 +9,13 @@
                <li class="col-sm-6 col-md-6 col-lg-6 py-4" *ngFor="let review of reviews">
                   <div class="row list-img-wrap">
                      <div class="col-md-3 list-img" [routerLink]="['/plans/detail', review.planId]">
-                        <img src="{{review.userImage}}" class="img-fluid rounded-circle shadow-lg">
+                        <img src="{{review.userImage}}" alt="" class="img-fluid rounded-circle shadow-lg">
                      </div>
                      <div class="col-md-9" >
                         <h5 class="text-primary">{{review.username}}</h5>
 					         <ngb-rating [(rate)]="review.rating" [readonly]='true' [max]=5></ngb-rating>
                         <p class="mb-4">{{review.text}}</p>
-                        <a class="btn btn-sm btn-danger text-white" (click)="DeleteReview(review.id)"><i class="sl sl-icon-close"></i> Delete</a>
+                        <a class="btn btn-sm btn-danger text-white" (click)="DeleteReview(review.id)"><em class="sl sl-icon-close"></em> Delete</a>
                      </div>
                   </div>
                </li>

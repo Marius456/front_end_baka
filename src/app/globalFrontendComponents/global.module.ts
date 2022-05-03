@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { TitleBarComponent } from '../globalFrontendComponents/TitleBar/TitleBar.component';
-import { TeamComponent } from './Team/Team.component';
 import { BannerComponent } from './Banner/Banner.component';
 import { PopularCategoriesComponent } from './PopuplarCategories/PopularCategories.component';
 import { FeatureSectionComponent } from './FeatureSection/FeatureSection.component';
@@ -28,7 +27,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
    AgmCoreModule.forRoot({apiKey: 'AIzaSyBtdO5k6CRntAMJCF-H5uZjTCoSGX95cdk'})],
   declarations: [
     TitleBarComponent,
-    TeamComponent,
     BannerComponent ,
      PopularCategoriesComponent,
      FeatureSectionComponent,
@@ -39,7 +37,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   ],
   exports: [ 
      TitleBarComponent,
-     TeamComponent,
      BannerComponent ,
      PopularCategoriesComponent,
      FeatureSectionComponent,
