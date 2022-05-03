@@ -26,7 +26,7 @@
                                  <div class="form-group mb-3">
                                     <div class="input-group input-group-alternative">
                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                          <span class="input-group-text"><em class="fa fa-user"></em></span>
                                        </div>
                                        <input class="form-control" formControlName="Name" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" placeholder="Name" type="text">
                                        <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
@@ -38,7 +38,7 @@
                                  <div class="form-group mb-3">
                                        <div class="input-group input-group-alternative">
                                           <div class="input-group-prepend">
-                                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                             <span class="input-group-text"><em class="fa fa-envelope"></em></span>
                                           </div>
                                           <input class="form-control" formControlName="Email" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" placeholder="Email" type="email">
                                           <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
@@ -50,7 +50,7 @@
                                  <div class="form-group">
                                     <div class="input-group input-group-alternative">
                                        <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="fa fa-unlock-alt"></i></span>
+                                          <span class="input-group-text"><em class="fa fa-unlock-alt"></em></span>
                                        </div>
                                        <input class="form-control" formControlName="Password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"  placeholder="Password" type="password">
                                        <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">

@@ -33,12 +33,12 @@
 							<div class="layout-switcher">
 								<div *ngIf="selectedCategory; then trueBlock; else falseBlock"></div>
 								<ng-template #trueBlock> 								
-									<a [routerLink]="['/plans/grid/', selectedCategory]" class="grid"><span class="round-pill d-block"><i class="fa fa-th"></i></span></a>
+									<a [routerLink]="['/plans/grid/', selectedCategory]" class="grid"><span class="round-pill d-block"><em class="fa fa-th"></em></span></a>
 								</ng-template>
 								<ng-template #falseBlock>
-									<a [routerLink]="['/plans/grid']"  class="grid"><span class="round-pill d-block"><i class="fa fa-th"></i></span></a>
+									<a [routerLink]="['/plans/grid']"  class="grid"><span class="round-pill d-block"><em class="fa fa-th"></em></span></a>
 								</ng-template>
-								<a  class="list active"><span class="round-pill d-block"><i class="fa fa-align-justify"></i></span></a>
+								<a  class="list active"><span class="round-pill d-block"><em class="fa fa-align-justify"></em></span></a>
 							</div>
 						</div>
 					</div>

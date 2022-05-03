@@ -64,12 +64,12 @@
            visibility: visible;
          }
          a:after {
-           font-family: "FontAwesome";
+           font-family: "FontAwesome", sans-serif;
            opacity: 0.5;
          }
        }
        ul li a:after {
-         font-family: "FontAwesome";
+         font-family: "FontAwesome", sans-serif;
          opacity: 0.5;
        }
        li a:after {

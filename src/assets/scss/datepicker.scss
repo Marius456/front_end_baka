@@ -326,7 +326,6 @@ input#date-picker {
      text-align: right;
      padding: 14px;
      min-height: 63px;
-     display: block;
      border-top: 1px solid #eaeaea;
      display: none;
      line-height: 12px;
@@ -346,7 +345,6 @@ input#date-picker {
        line-height: 20px;
        border: none;
        font-weight: 600;
-       margin: 0;
        font-size: 14px;
        border-radius: 50px;
        background-color: #66676b;
@@ -362,10 +360,8 @@ input#date-picker {
        line-height: 20px;
        border: none;
        font-weight: 600;
-       margin: 0;
        font-size: 14px;
        border-radius: 50px;
-       background-color: #66676b;
        color: #fff;
        transition: all 0.3s;
        margin: 0 3px;
@@ -479,7 +475,7 @@ input#date-picker {
      padding-right: 7px;
      &:after {
        content: "\f107";
-       font-family: "FontAwesome";
+       font-family: "FontAwesome", sans-serif;
        font-size: 18px;
        margin: 0 0 0 0;
        right: 0px;
