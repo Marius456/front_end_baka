@@ -123,11 +123,6 @@ export class AddPlanComponent implements OnInit{
       this.FromPlan.controls['Description'].setValue('');  
       this.submitted = false;
    }
-
-   GetCategories()
-   {
-
-   }
    
   onSelectedFile(e)
   {
