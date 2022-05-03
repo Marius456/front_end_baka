@@ -78,11 +78,11 @@ input#date-picker {
    &:after {
      position: absolute;
      display: inline-block;
-     border-bottom-color: rgba(0, 0, 0, 0.2);
      content: '';
      top: -7px;
      border-right: 7px solid transparent;
      border-bottom: 7px solid #ccc;
+     border-bottom-color: rgba(0, 0, 0, 0.2);
      border-left: 7px solid transparent;
    }
    &.opensleft {

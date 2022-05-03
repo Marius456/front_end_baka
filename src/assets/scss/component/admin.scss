@@ -133,7 +133,6 @@
        min-width: 20px;
        height: 20px;
        letter-spacing: -0.5px;
-       text-align: center;
        border-radius: 50px;
        margin-left: 4px;
        &.messages {
@@ -216,8 +215,8 @@
    padding: 0;
    margin: 0 0 40px 0;
    display: block;
-   background-color: transparent;
    background: transparent;
+   background-color: transparent;
    h2 {
      font-size: 30px;
      line-height: 38px;
@@ -338,7 +337,6 @@
    font-weight: 500;
    display: inline-block;
    transition: 0.3s;
-   color: #666;
    padding: 0;
    float: right;
    &:hover {
@@ -1261,9 +1259,7 @@
    width: 18px;
    height: 18px;
    background: #66676b;
-   display: inline-block;
    border-radius: 50%;
-   color: #fff;
    text-align: center;
    padding: 0 !important;
    font-weight: 500;
@@ -1395,7 +1391,6 @@
    max-height: 60px;
    padding-top: 10px;
    padding-bottom: 10px;
-   margin-top: 8px;
    opacity: 0;
    max-height: 0;
    padding-top: 0;

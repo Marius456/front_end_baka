@@ -4,8 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Exercise } from './../../entities/exercise';
 import { AuthenticationService } from './../../services/authentication.service';
 import { ExerciseService } from './../../services/exercise.service';
-import { PlanService } from './../../services/plan.service';
-import { UserService } from './../../services/user.service';
 declare var $ : any;
 type GUID = string & { isGuid: true};
 
