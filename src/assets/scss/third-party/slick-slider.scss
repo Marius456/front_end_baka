@@ -203,8 +203,8 @@
 .slick-prev { left: 3px; transform: translate3d(-90px,-50%,0); }
 .slick-next { right: 3px; transform: translate3d(90px,-50%,0); }
 
-.slick-prev:before { font-family:'FontAwesome'; content:"\f060" }
-.slick-next:before {font-family:'FontAwesome'; content:"\f061" }
+.slick-prev:before { font-family:'FontAwesome', sans-serif; content:"\f060" }
+.slick-next:before {font-family:'FontAwesome', sans-serif; content:"\f061" }
 
 
 /* Dots */
@@ -237,7 +237,6 @@
 
 .slick-dots li {
     font-size: 0;
-    line-height: 0;
     cursor: pointer;
     color: transparent;
     border: 0;
@@ -267,7 +266,6 @@
 	position: absolute;
 	top: 1px;
 	left: 1px;
-	background-color: transparent;
 	border-radius: 50%;
 	transition: all 0.3s;
 	opacity: 0;
