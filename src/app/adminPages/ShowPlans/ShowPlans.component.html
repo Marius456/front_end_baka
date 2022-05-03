@@ -1,0 +1,34 @@
+<div class="dashboard-content">
+   <div class="row responsive-row">
+      <!-- Plans -->
+      <div class="col-lg-12 col-md-12">
+         <div class="dashboard-list-box mb-5">
+            <div class="db-tile ">
+               <h4>Your created plans</h4>
+            </div>
+            <ul class="row border-grid">
+               <li class="col-sm-6 col-md-6 col-lg-6" *ngFor="let plan of Data">
+                  <div class="list-box-listing">
+                     <div class="list-box-listing-img"><a><img src="{{plan.imagePath}}" alt=""></a></div>
+                     <div class="list-box-listing-content">
+                        <div class="inner">
+                           <h3><a >{{plan.name}}</a></h3>
+                           <span>{{plan.description}}</span>
+                           <div class="star-rating" data-rating="5">
+                              <div class="rating-counter">({{plan.reviewCount}} reviews)</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="btn-g pt-4">
+                     <a  href="admin/add-plan/{{plan.id}}"  class="btn btn-sm btn-primary text-white"><i class="sl sl-icon-note"></i> Edit</a>
+                     <a  class="btn btn-sm btn-danger text-white" (click)="DeletePlan(plan.id)"><i class="sl sl-icon-close"></i> Delete</a>
+                     <a  href="admin/plan/{{plan.id}}/exercises"  class="btn btn-sm btn-info text-white"><i class="sl sl-icon-note"></i> Add Exercises</a>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>
+

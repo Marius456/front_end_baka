@@ -1,0 +1,59 @@
+<div class="sticky">
+   <div class="boxed-widget booking-widget">
+      <div>
+            <a class="btn btn-1 btn-primary d-block" (click) = "show()">Review</a>
+      </div>
+      <!-- Book Now -->
+      <div>
+            <a class="btn btn-1 btn-warning d-block" (click) = "bookPlan()">Book now</a>
+      </div>
+   </div>
+   <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h4 class="modal-title" id="myModalLabel">Review</h4>
+             </div>
+             <div class="modal-body">
+                 <form [formGroup]="FromReview" (ngSubmit)="CreateReview(FromReview.value)">
+                     <div class="form-group">
+                        <h6>Rating</h6>
+                        <ngb-rating formControlName="Rating" [ngClass]="{ 'is-invalid': submitted && f.Rating.errors }" [(rate)]="gfg" [max]=5></ngb-rating> 
+                         <div *ngIf="submitted && f.Rating.errors" class="invalid-feedback">
+                             <div *ngIf="f.Rating.errors.required">Rating is required</div>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                        <h6>Text</h6>
+                        <div class="form">
+                           <textarea class="form-control form-control-alternative" formControlName="Text" id="Text"[ngClass]="{ 'is-invalid': submitted && f.Text.errors }" id="exampleFormControlTextarea1" rows="3"></textarea>
+                           <div *ngIf="submitted && f.Text.errors" class="invalid-feedback">
+                              <div *ngIf="f.Text.errors.required">Text is required</div>
+                           </div> 
+                        </div>
+                     </div>
+                   <button type="submit" class="btn btn-primary">Submit</button>
+                 </form>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "hide()">Close</button>
+             </div>
+           </div>
+         </div>
+         </div>
+   <!-- Book Now / End -->
+   <div class="boxed-widget bg-secondary mt-4 text-center p-4" *ngIf="user">
+      <a [routerLink]="['/admin/profile/', user.id]">
+         <h4 class="mb-4">Author</h4>
+         <div class="mb-3">
+            <div class="mb-2">
+               <img class="img-fluid rounded-circle shadow-lg" width="80" height="80" src="{{user.image}}">
+            </div>
+            <div class="">
+               <h5 class="text-primary">{{user.name}}</h5>
+            </div>
+         </div>
+      </a>
+   </div>
+</div>
+

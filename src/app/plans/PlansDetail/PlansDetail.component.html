@@ -1,0 +1,80 @@
+<div class="main-wrapper"   *ngIf="foundPlan">
+   <title-bar title="{{foundPlan.name}}" subtitle="Explore New Plans"></title-bar>
+<!-- Content -->
+<div class="container">
+   <div class="content">
+      <div class="row sticky-wrapper">
+         <div class="col-lg-8 col-md-8">
+            <div class="">
+               <div class="detail-tile mb-4">
+                  <h3>{{foundPlan.name}}</h3>
+                  <span class="badge badge-pill badge-info text-uppercase mr-2">{{foundPlan.category}}</span>
+               </div>
+               <div class="nav-wrapper">
+                  <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                     <li class="nav-item">
+                        <a class="nav-link mb-sm-3 mb-md-0 active show" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="fa fa-info-circle mr-2"></i>About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link mb-sm-3 mb-md-0" (click)="refreshCalendar()" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="fa fa-info-circle mr-2"></i>Calendar</a>
+                        </li>
+                     <li class="nav-item">
+                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-3" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false"><i class="fa fa-info-circle mr-2"></i>Exercises</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-4-tab" data-toggle="tab" href="#tabs-icons-text-4" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false"><i class="fa fa-money mr-2"></i>Reviews</a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="card shadow">
+                  <div class="card-body">
+                     <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                           <p class="description">{{foundPlan.description}}</p>
+                        </div>
+                        <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
+                           <full-calendar deepChangeDetection="true" [options]="calendarOptions"></full-calendar>
+                        </div>
+                        <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
+                           <div class="pricing-list-container">
+                              <ul>
+                                 <li *ngFor="let exercise of allExercises  | async">
+                                    <h5>{{exercise.title}}</h5>
+                                    <p>{{exercise.text}}</p>
+                                    <span>{{exercise.time | date: "MMMM dd"}}</span>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="tabs-icons-text-4" role="tabpanel" aria-labelledby="tabs-icons-text-4-tab">
+                           <div class="row mb-4 list-img-wrap bodyReview">
+                              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                              <span class="heading">User Rating {{foundPlan.averageRating}}</span>
+                              <p> average based on reviews.</p>
+                              <hr style="border:3px solid #f1f1f1">
+                           </div>
+                           <div class="row mb-4 list-img-wrap" *ngFor="let review of allReviews">
+                              <div class="col-md-2 list-img"><img class="img-fluid rounded-circle shadow-lg" src="{{review.userImage}}">
+                              </div>
+                              <div class="col-md-10">
+                                 <h5 class="text-primary">{{review.username}}</h5>
+                                 <ngb-rating [(rate)]="review.rating" [readonly]='true' [max]=5></ngb-rating>
+                                 <p>{{review.text}}</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-4">           
+            <sidebar-layout userId={{foundPlan.userId}} planId={{foundPlan.id}}></sidebar-layout>
+         </div>
+      </div>
+   </div>
+</div>
+             
+</div>             
+

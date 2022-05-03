@@ -1,0 +1,42 @@
+<div class="dashboard-content">
+    <!-- <full-calendar [options]="calendarOptions"></full-calendar> -->
+  <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div class="card m-3">
+        <h5 class="card-header">Plan exercises</h5>
+        <div *ngFor="let planExercisesArray of t.controls; let i = index" class="list-group list-group-flush">
+            <div class="list-group-item">
+                <h5 class="card-title">Exercise {{i + 1}}</h5>
+                <div [formGroup]="planExercisesArray" class="form-row">
+                    <div class="form-group col-3">
+                        <label>Exercise</label>
+                       <select class="form-control" formControlName="exerciseId" [ngClass]="{ 'is-invalid': submitted && planExercisesArray.controls.exerciseId.errors }">
+                        <option [ngValue]="null" disabled>Select Exercise</option>
+                        <option *ngFor="let exercise of Data" [ngValue]="exercise.id">{{exercise.text}}</option>
+                       </select>
+                        <div *ngIf="submitted && planExercisesArray.controls.exerciseId.errors" class="invalid-feedback">
+                            <div *ngIf="planExercisesArray.controls.exerciseId.errors.required">Exercise is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label>Time</label>
+                        <input type="date" class="form-control" formControlName="time" [ngClass]="{ 'is-invalid': submitted && planExercisesArray.controls.time.errors }">
+                        <div *ngIf="submitted && planExercisesArray.controls.time.errors" class="invalid-feedback">
+                            <div *ngIf="planExercisesArray.controls.time.errors.required">Date is required</div>
+                        </div>
+                    </div>
+                    <div class="col-3  align-items-end">
+                        <button (click)="delete(i)" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-primary mr-1" type="button" (click)="addNewExercise()">Add New</button>
+          <button class="btn btn-success mr-1">Save</button>
+            <button class="btn btn-danger mr-1" type="reset" (click)="onReset()">Delete All</button>
+            <button class="btn btn-secondary" type="button" (click)="onClear()">Clear Fields</button>
+        </div>
+    </div>
+</form>
+</div>
+

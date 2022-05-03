@@ -1,0 +1,78 @@
+<div class="main-wrapper">
+	<!--Title Bar -->
+	<title-bar title="Sport plans" subtitle="Find your new plan"></title-bar>
+	<!-- Content -->
+	<div class="content">
+		<div class="container">
+			<div class="row">
+				<!-- Search -->
+				<div class="col-md-12 grid-full-width page-search mb-3">
+					<div class="main-search-input mt-0">
+						<div class="col-lg-3 col-sm-6">
+							<select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+								<option selected>Choose...</option>
+								<option value="1">Resistance</option>
+								<option value="2">Plyometric</option>
+								<option value="3">Continuous</option>
+								<option value="4">Fartlek</option>
+								<option value="5">Interval</option>
+								<option value="6">Circuit</option>
+							</select>
+						</div>
+						<div class="col-lg-3 col-sm-6 text-right">
+							<a class="btn main-search-btn btn-radius btn-lg btn-primary text-white"><span class="btn-inner--text">Search</span></a>
+						</div>
+					</div>
+				</div>
+				<!-- Search Section / End -->
+				<div class="col-md-12">
+					<!-- Sorting - Filtering Section -->
+					<div class="row my-4">
+						<div class="col-md-6">
+							<!-- Layout Switcher -->
+							<div class="layout-switcher">
+								<a class="grid active"><span class="round-pill d-block"><i class="fa fa-th"></i></span></a>
+								<div *ngIf="selectedCategory; then trueBlock; else falseBlock"></div>
+								<ng-template #trueBlock> 					
+									<a [routerLink]="['/plans/list/', selectedCategory]" class="list"><span class="round-pill d-block"><i class="fa fa-align-justify"></i></span></a>
+								</ng-template>
+								<ng-template #falseBlock>
+									<a [routerLink]="['/plans/list/']" class="list"><span class="round-pill d-block"><i class="fa fa-align-justify"></i></span></a>
+								</ng-template>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="fullwidth-filters">
+							</div>
+						</div>
+					</div>
+					<!-- Sorting - Filtering Section / End -->
+					<div class="row">
+						<!-- Listing Item -->
+						<div class="col-lg-4 col-md-6 grid-layout-list" *ngFor="let plan of Data">
+							<div  class="listing-item-container compact">
+								<div class="listing-item mb-4">
+									<a [routerLink]="['/plans/detail', plan.id]"> <img src="{{plan.imagePath}}" alt=""></a>
+									<span class="badge badge-pill badge-primary text-uppercase">{{plan.badge}}</span>
+									<div class="listing-item-content">
+										<span class="badge badge-pill badge-primary text-uppercase">{{plan.category}}</span>
+										<div *ngIf="plan.averageRating >= 4"><span class="badge badge-pill list-banner badge-success text-uppercase">{{plan.averageRating}}</span></div> 
+										<div *ngIf="4 > plan.averageRating && plan.averageRating >= 3"><span class="badge badge-pill list-banner badge-warning text-uppercase">{{plan.averageRating}}</span></div> 
+										<div *ngIf="3 > plan.averageRating && plan.averageRating > 0"><span class="badge badge-pill list-banner badge-danger text-uppercase">{{plan.averageRating}}</span></div> 
+										<div *ngIf="plan.averageRating == 0"><span class="badge badge-pill list-banner badge-pill text-uppercase">{{plan.averageRating}}</span></div> 
+										<a [routerLink]="['/plans/detail', plan.id]">
+											<h3>{{plan.name}}</h3>
+										</a>
+										<span> <small>{{plan.description}}</small> </span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Listing Item / End -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,11 +1,14 @@
+type GUID = string & { isGuid: true};
 export class Comment {
-    id:number;  
-    userId:number;  
-    postId:number;  
-    text:string;
+    id: GUID;  
+    userId: GUID;  
+    username: string;
+    postId: GUID;  
+    text: string;
 }
 export class NewComment {
-    userId:number;  
-    postId:number;  
-    text:string;
+    userId: GUID;  
+    username: string;
+    postId: GUID;  
+    text: string;
 }

@@ -1,0 +1,81 @@
+<div class="dashboard-content">
+   <form [formGroup]="FromPlan" (ngSubmit)="UpdateId();CreatePlan(FromPlan.value)">  
+      <div class="row">
+         <div class="col-lg-12">
+            <div id="add-listing">
+               <!-- Section -->
+               <div class="add-listing-section mb-4">
+                  <!-- Headline -->
+                  <div class="add-listing-headline">
+                     <h3> Basic Informations</h3>
+                  </div>
+                  <!-- Title -->
+                  <div class="row with-forms">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <input type="text" formControlName="Name" id="company" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" placeholder="Sport Plan Name" class="form-control form-control-alternative">
+                           <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                              <div *ngIf="f.Name.errors.required">Plan Name is required</div>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Row -->
+                  <div class="row with-forms">
+                     <!-- Status -->
+                     <div class="col-md-6">
+                        <select formControlName="Category" class="custom-select form-control-alternative mb-3" aria-placeholder="Category" >
+                           <option label="blank">Select Category</option>
+                           <option value="Resistance">Resistance</option>
+                           <option value="Plyometric">Plyometric</option>
+                           <option value="Continuous">Continuous</option>
+                           <option value="Fartlek">Fartlek</option>
+                           <option value="Interval">Interval</option>
+                           <option value="Circuit">Circuit</option>
+                        </select>
+                     </div>
+                     <!-- Type -->
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <!-- <input type="text" placeholder="Keywords" class="form-control form-control-alternative"> -->
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Row / End -->
+               </div>
+               <!-- Section / End -->
+               <!-- Section -->
+                        <div>
+                           <div class="custom-file">
+                              <input type="file" (change)="onSelectedFile($event)" class="custom-file-input" id="validatedCustomFile" required>
+                              <label class="custom-file-label" for="selectedFile">Choose file...</label>
+                              <div class="invalid-feedback">Example invalid custom file feedback</div>
+                           </div>
+                           <button (click)="linkItem()" >Uploud</button>
+                        </div>
+               <!-- Section / End -->
+               <!-- Section -->
+               <div class="add-listing-section mb-4">
+                  <!-- Headline -->
+                  <div class="add-listing-headline">
+                     <h3> Details</h3>
+                  </div>
+                  <div class="form">
+                     <textarea class="form-control form-control-alternative" formControlName="Description" id="Description"[ngClass]="{ 'is-invalid': submitted && f.Description.errors }" placeholder="Description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                     <div *ngIf="submitted && f.Description.errors" class="invalid-feedback">
+                        <div *ngIf="f.Description.errors.required">Plan Description is required</div>
+                    </div> 
+                  </div>
+               </div>
+               <!-- Section / End -->
+               <button type="submit" class="btn btn-primary" >Create <i class="fa fa-arrow-circle-right"></i></button> 
+            </div>
+         </div>
+         <!-- Copyrights -->
+         <div class="col-md-12">
+            <div class="copyrights">© 2022 GiveATry. All Rights Reserved.</div>
+         </div>
+      </div>
+   </form>
+</div>
+

@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sveikata": {
+    "angularListing": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -16,22 +13,50 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "progress": false,
-            "extractCss": true,
-            "outputPath": "dist",
+            "aot": true,
+            "outputPath": "dist/angularListing",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": ["src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "allowedCommonJsDependencies": [
+              "nouislider"
+            ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/icon-font.css",
+              "src/assets/css/bootstrap-datepicker.min.css",
+              "src/assets/scss/style.scss",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss"
+              // "node_modules/ngx-bar-rating/themes/br-default-theme.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/scripts/jquery-2.2.0.min.js",
+              "src/assets/scripts/bootstrap.min.js",
+              "src/assets/scripts/slick.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
+              "src/assets/scripts/magnific-popup.min.js",
+              "src/assets/scripts/counterup.min.js",
+              "src/assets/scripts/jquery-ui.min.js",
+              "src/assets/scripts/jquery.countdown.min.js",
+              "src/assets/scripts/bootstrap-datepicker.min.js",
+              "src/assets/scripts/nouislider.min.js"
+            ]
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -53,18 +78,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sveikata:build"
+            "browserTarget": "angularListing:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sveikata:build:production"
+              "browserTarget": "angularListing:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sveikata:build"
+            "browserTarget": "angularListing:build"
           }
         },
         "test": {
@@ -74,47 +99,47 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": ["src/styles.css"],
-            "scripts": [],
-            "assets": ["src/assets"]
+            "styles": [
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/icon-font.css",
+              "src/assets/scss/style.scss",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              // "node_modules/ngx-bar-rating/themes/br-default-theme.css"
+            ],
+            "scripts": [
+              "src/assets/scripts/jquery-2.2.0.min.js",
+              "src/assets/scripts/bootstrap.min.js",
+              "src/assets/scripts/slick.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
+              "src/assets/scripts/magnific-popup.min.js",
+              "src/assets/scripts/counterup.min.js",
+              "src/assets/scripts/jquery-ui.min.js",
+              "src/assets/scripts/jquery.countdown.min.js",
+              "src/assets/scripts/bootstrap-datepicker.min.js",
+              "src/assets/scripts/nouislider.min.js"
+            ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist-server",
-            "main": "src/main.ts",
-            "tsConfig": "src/tsconfig.server.json"
-          },
-          "configurations": {
-            "dev": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": true
-            },
-            "production": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false
-            }
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     },
-    "sveikata-e2e": {
+    "angularListing-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -122,18 +147,23 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sveikata:serve"
+            "devServerTarget": "angularListing:serve"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "sveikata"
+  "defaultProject": "angularListing",
+  "cli": {
+    "analytics": false
+  }
 }

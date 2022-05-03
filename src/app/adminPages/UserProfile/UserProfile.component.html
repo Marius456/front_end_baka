@@ -1,0 +1,73 @@
+<div class="dashboard-content">
+<div id="content">
+  <div class="container">
+	 <div class="profile-page">
+	 <div class="card card-profile shadow">
+		  <div class="px-4">
+			 <div class="row justify-content-center">
+				<div class="col-lg-3 order-lg-2">
+				  <div class="card-profile-image">
+						<img src="{{currentUser.image}}" class="rounded-circle">
+				  </div>
+				</div>
+			 </div>
+			 <div class="mt-5 py-5 text-center">
+				<div class="text-center mt-5">
+					<h3>{{currentUser.name}}</h3>
+				</div>
+			 </div>
+			 <div class="mt-5 py-5 border-top text-center">
+				<div class="row justify-content-center">
+				  <div class="col-lg-9">
+					 <p>{{currentUser.description}}</p>
+				  </div>
+				</div>
+			 </div>
+		  </div>
+		  <div class="px-4" *ngIf="plans.length > 0">
+			 <h3>User created plans</h3>
+		  </div>
+		  <div class="row p-4" *ngIf="plans.length > 0">
+			 <div class="col-md-6 mb-4" *ngFor="let plan of plans">
+				  <div class="listing-item-container list-layout">
+						<a [routerLink]="['/plans/detail', plan.id]" class="listing-item">
+							<!-- Image -->
+							<div class="listing-item-image">
+								<img src="{{plan.imagePath}}" alt="">
+							</div>
+							<!-- Content -->
+							<div class="listing-item-content">
+								<div class="listing-item-inner">
+									<h3>{{plan.name}}</h3>
+									<span> <small> {{plan.description}} </small> </span>
+									<div class="mt-3"><span class="badge badge-pill badge-primary text-uppercase">{{plan.category}}</span></div>
+								</div>
+								<div *ngIf="plan.averageRating >= 4"><span class="badge badge-pill list-banner badge-success text-uppercase">{{plan.averageRating}}</span></div> 
+								<div *ngIf="4 > plan.averageRating && plan.averageRating >= 3"><span class="badge badge-pill list-banner badge-warning text-uppercase">{{plan.averageRating}}</span></div> 
+								<div *ngIf="3 > plan.averageRating && plan.averageRating > 0"><span class="badge badge-pill list-banner badge-danger text-uppercase">{{plan.averageRating}}</span></div> 
+								<div *ngIf="plan.averageRating == 0"><span class="badge badge-pill list-banner badge-pill text-uppercase">{{plan.averageRating}}</span></div> 
+							</div>
+						</a>
+					</div>
+			 </div>
+		  </div>
+		  <div class="pb-5" *ngIf="reviews.length > 0">
+			<div class="px-4">
+				<h3>User reviews</h3>
+			</div>
+			<div class="row p-4 list-img-wrap" *ngFor="let review of reviews">
+				<div class="col-md-2 list-img">
+					<img src="{{review.planImage}}" class="img-fluid rounded-circle shadow-lg">
+				</div>
+				<div class="col-md-10" [routerLink]="['/plans/detail', review.planId]">
+					<h5 class="text-primary">{{review.planName}}</h5>
+					<ngb-rating [(rate)]="review.rating" [readonly]='true' [max]=5></ngb-rating>
+					<p>{{review.text}}</p>
+				</div>
+			</div>
+		</div>
+		</div>
+	 </div>
+</div>
+</div>
+</div>

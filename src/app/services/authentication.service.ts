@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { User, loginUser } from '../entities/user';
 
@@ -14,14 +15,23 @@ export class AuthenticationService {
 
     constructor(
         private http: HttpClient,
-        private router: Router
+        private router: Router,
+        private jwtHelper: JwtHelperService
         ) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        if(this.currentUserSubject.value){
+            localStorage.setItem('access_token', this.currentUserSubject.value.token);
+        }
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
+    }
+
+    public get getAccessToken(): any{
+        const token = this.jwtHelper.decodeToken(localStorage.getItem('access_token'));
+        return token;
     }
 
     login(user : loginUser) {
@@ -37,7 +47,9 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('access_token');
         this.currentUserSubject.next(null);
         this.router.navigate(['/']);
+        window.location.reload();
     }
 }

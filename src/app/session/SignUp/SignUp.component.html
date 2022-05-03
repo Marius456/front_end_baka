@@ -1,0 +1,74 @@
+<div class="content p-0">
+      <div class="login-wrapper">
+         <div class="row m-0">
+            <div class="col-lg-4 h-100-vh side-banner" style="background-image:url('assets/images/bg-login.jpg');background-position: center center; background-size: cover;">
+               <div class="content px-5 text-center d-flex justify-content-center h-100">
+                  <div class="align-self-center">
+                     <img src="assets/images/logo-white.png" class="mb-4" alt="">
+                     <h4 class="text-white">Discover great sport plans</h4>
+                     <p class="text-white">Find awesome sport plans, friends and immerse yourself in discusions with like-minded people!</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-8 site-content">
+               <div class="content">
+                  <div class="row">
+                     <div class="col-lg-7 mx-auto">
+                        <div class="text-center mb-4">
+                           <h2>Create DirectList Account.</h2>
+                           <p>Fill up the following details</p>
+                        </div>
+                        <div class="card bg-secondary shadow border-0">
+                         
+                           <div class="card-body px-lg-5 py-lg-5">
+                             
+                              <form role="form" [formGroup]="FromUser" (ngSubmit)="CreateUser(FromUser.value)">
+                                 <div class="form-group mb-3">
+                                    <div class="input-group input-group-alternative">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                       </div>
+                                       <input class="form-control" formControlName="Name" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" placeholder="Name" type="text">
+                                       <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                                          <div *ngIf="f.Name.errors.required">User Name is required</div>
+                                          <div *ngIf="f.Password.errors.minlength">Password must be at least 3 characters</div>
+                                      </div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group mb-3">
+                                       <div class="input-group input-group-alternative">
+                                          <div class="input-group-prepend">
+                                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                          </div>
+                                          <input class="form-control" formControlName="Email" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" placeholder="Email" type="email">
+                                          <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                             <div *ngIf="f.Email.errors.required">Email is required</div>
+                                             <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
+                                         </div>
+                                       </div>
+                                    </div>
+                                 <div class="form-group">
+                                    <div class="input-group input-group-alternative">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fa fa-unlock-alt"></i></span>
+                                       </div>
+                                       <input class="form-control" formControlName="Password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"  placeholder="Password" type="password">
+                                       <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                                          <div *ngIf="f.Password.errors.required">Password is required</div>
+                                          <div *ngIf="f.Password.errors.minlength">Password must be at least 5 characters</div>
+                                      </div>
+                                    </div>
+                                 </div>
+                                 <div class="text-center">
+                                    <button type="submit" class="btn btn-primary mt-4">Register Me</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
