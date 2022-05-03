@@ -193,7 +193,7 @@ button.mfp-close {
 
 .mfp-gallery .mfp-close:after,
 .mfp-gallery .mfp-close:before {
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", sans-serif;
 	font-size: 29px;
 	top: 4px;
 	left: 50%;
@@ -224,7 +224,7 @@ button.mfp-close {
 .og-close:before,
 .mfp-close:after,
 .mfp-close:before {
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", sans-serif;
 	font-size: 29px;
 	top: 21px;
 	left: 50%;
@@ -364,7 +364,7 @@ button.mfp-close {
 
 .mfp-arrow.mfp-arrow-left,
 .mfp-arrow.mfp-arrow-right {
-	font-family: "simple-line-icons";
+	font-family: "simple-line-icons", sans-serif;
 	font-size: 20px;
 }
 

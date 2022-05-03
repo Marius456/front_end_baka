@@ -18,7 +18,7 @@ span.like-icon {
 .like-icon:before,
 .like-icon:after {
 	transition: opacity 0.3s, transform 0.4s cubic-bezier(.0,-.41,.19,2.5);
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", sans-serif;
 	position: absolute;
 	right: 0;
 	left: 0;

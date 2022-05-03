@@ -8,7 +8,7 @@
 	height: 26px;
 	width: 44px;
 	display: inline-block;
-	font-family: "Open Sans";
+	font-family: "Open Sans", sans-serif;
 	position: relative;
 	border-radius: 50px;
 	letter-spacing: -0.5px;
@@ -42,7 +42,7 @@
 
 .infoBox .numerical-rating {
 	margin: 0;
-	font-family: "Open Sans";
+	font-family: "Open Sans", sans-serif;
 }
 
 
@@ -81,7 +81,7 @@
 
 .star-rating .star.half:after,
 .star-rating .star:before {
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", sans-serif;
 	content: "\f005";
 	display: block;
 	color: #ffc600;

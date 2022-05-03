@@ -102,7 +102,7 @@ body .notification strong { border: none; }
 
 .notification.closeable a.close:before {
 	content: "\f00d";
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", sans-serif;
 	position: absolute;
 	right: 25px;
 	top: 0;

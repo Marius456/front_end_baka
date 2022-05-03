@@ -23,7 +23,7 @@
 
 .custom-zoom-in:before,
 .custom-zoom-out:before  {
-	font-family: "FontAwesome";
+	font-family: "FontAwesome", sans-serif;
 	width: 100%;
 	line-height: 35px;
 	transition: -webkit-text-stroke 0.3s;

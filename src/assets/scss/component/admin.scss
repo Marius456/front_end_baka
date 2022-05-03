@@ -120,7 +120,7 @@
      }
      span.nav-tag {
        background-color: rgba(255, 255, 255, 0.2);
-       font-family: "Open Sans";
+       font-family: "Open Sans", sans-serif;
        font-weight: 600;
        display: inline-block;
        font-size: 11px;
@@ -183,7 +183,7 @@
        }
      }
      a:after {
-       font-family: "FontAwesome";
+       font-family: "FontAwesome", sans-serif;
        content: '\f107';
        right: 27px;
        font-size: 16px;
@@ -256,7 +256,7 @@
      padding: 0;
      margin: 0;
      color: #fff;
-     font-family: "Open Sans";
+     font-family: "Open Sans", sans-serif;
      letter-spacing: -1px;
    }
    span {
@@ -531,7 +531,7 @@
        top: 12px;
        left: -9px;
        content: "\f0d9";
-       font-family: "FontAwesome";
+       font-family: "FontAwesome", sans-serif;
        font-size: 31px;
        color: #f6f6f6;
      }
@@ -1295,7 +1295,7 @@
      -ms-transform: translate(-50%, -115%);
    }
    &:after {
-     font-family: "FontAwesome";
+     font-family: "FontAwesome", sans-serif;
      content: "\f128";
      line-height: 19px;
      display: inline-block;
@@ -1306,7 +1306,7 @@
  }
  
  .tip-content:after {
-   font-family: "FontAwesome";
+   font-family: "FontAwesome", sans-serif;
    content: "\f0dd";
    position: absolute;
    bottom: 3px;
@@ -1647,7 +1647,7 @@
      font-size: 10px;
      font-weight: 500;
      line-height: 1;
-     font-family: FontAwesome;
+     font-family: FontAwesome, sans-serif;
      cursor: pointer;
      transition: 0.3s;
      &:focus {

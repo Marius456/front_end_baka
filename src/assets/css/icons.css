@@ -13,7 +13,7 @@
 }
 .fa {
   display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 14px/1 FontAwesome, sans-serif;
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -2212,7 +2212,7 @@
 
 .sl {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'simple-line-icons' !important;
+    font-family: 'simple-line-icons', sans-serif !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -2757,7 +2757,7 @@
 }
 
 .im {
-  font-family: 'iconsmind'  !important;
+  font-family: 'iconsmind', sans-serif  !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
